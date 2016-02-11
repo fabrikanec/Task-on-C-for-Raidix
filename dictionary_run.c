@@ -43,13 +43,13 @@ int main(int argc, char ** argv)
 
     }
     usage();
-    scanf("%128s",word);
+    scanf("%s",word);
 
     while(word[0] != '@')
     {	
 	if (word[0] == '$')
 	{
-	    scanf("%128s128", &search_word);
+	    scanf("%s", search_word);
 	    fgets (desc, MAX_DESC_SIZE, stdin);
 	    strcpy(buff,"");
 	    strncat (buff, search_word, MAX_WORD_SIZE);
@@ -66,7 +66,7 @@ int main(int argc, char ** argv)
                 printf("%s:\t%s\n", word, "Not in dictionary");
             }
 	}
-        scanf("%128s",word);
+        scanf("%s",word);
     }
     if (flag)
     fclose (new_dictionary);
