@@ -56,8 +56,10 @@ int main(int argc, char ** argv)
 	    strncat (buff, desc, MAX_DESC_SIZE);
 	    buff[MAX_DESC_SIZE + MAX_WORD_SIZE + 1] = '\0';	    
 	    fprintf (new_dictionary, buff);
-	    trie_insert(&tree.root, search_word, desc);
-
+	    if (trie_insert(&tree.root, search_word, desc))
+            {
+                printf("failed to insert: memory is full");
+            }
 	} else {
             if (!dictionary_lookup(word,answer))
             {
