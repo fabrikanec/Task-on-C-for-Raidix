@@ -28,6 +28,7 @@ int main(int argc, char ** argv)
     char search_word[MAX_WORD_SIZE];
     char desc[MAX_DESC_SIZE];
     char buff [MAX_DESC_SIZE + MAX_WORD_SIZE + 1];
+    short flag = 0; // flag for closing first new_dictionary
 
     FILE *new_dictionary;
     dictionary_initialise();
@@ -43,6 +44,7 @@ int main(int argc, char ** argv)
 	//new_dictionary = fopen ("./new_dictionary.txt","ab+");
 	if ((new_dictionary = fopen ("./new_dictionary.txt","r")) == NULL)
 	{
+	    flag = 1;
 	    new_dictionary = fopen ("./new_dictionary.txt","ab+");
 
 	} else {
@@ -82,7 +84,8 @@ int main(int argc, char ** argv)
 	}
         scanf("%s",word);
     }
-
+    if (flag)
+    fclose (new_dictionary);
     return 0;
 
 }
