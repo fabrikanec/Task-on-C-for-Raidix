@@ -3,22 +3,6 @@
 #include <string.h>
 #include "dictionary.h"
 
-#define ALPHABET_SIZE 26
-
-struct trie tree;
-
-struct trie_node
-{
-    char *value;
-
-    // *2 as we must account for a-z as well as A-Z
-    struct trie_node *children[ALPHABET_SIZE * 2];
-};
-
-struct trie
-{
-    struct trie_node root;
-};
 
 
 int main(int argc, char ** argv)

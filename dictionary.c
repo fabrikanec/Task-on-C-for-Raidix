@@ -3,22 +3,7 @@
 #include <string.h>
 #include "dictionary.h"
 
-#define ALPHABET_SIZE 26
 
-struct trie tree;
-
-struct trie_node
-{
-    char *value;
-
-    // *2 as we must account for a-z as well as A-Z
-    struct trie_node *children[ALPHABET_SIZE * 2];
-};
-
-struct trie
-{
-    struct trie_node root;
-};
 
 /**
 * Converts a character to an integer value based upon its position in
@@ -142,8 +127,7 @@ int dictionary_read_from_file(const char * filename)
     }
 
     char word[MAX_WORD_SIZE];
-    //char desc[MAX_DESC_SIZE]; 
-    char* desc = NULL;
+    char desc[MAX_DESC_SIZE]; 
 
     int count = 0;
 
