@@ -78,6 +78,8 @@ int trie_insert(struct trie_node *node, const char *word, char *description)
     int len = strlen(description);
     if ((node->value = malloc(len + 1)) == NULL)
     {
+	if (node != NULL)
+	free(node);
 	printf("failed to insert: memory is full");
 	return 1;
     }
